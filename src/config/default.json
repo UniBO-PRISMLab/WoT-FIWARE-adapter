@@ -1,0 +1,16 @@
+{
+  "node_wot": {
+    "host":"wot-soil-probe",
+    "port": 8080
+  },
+  "entityType": "SoilProbe",
+  "orion": {
+    "host": "orion",
+    "port": 1026
+  },
+  "fiware": {
+    "service": "openiot",
+    "servicePath": "/"
+  },
+  "filepath":"adapter_log.txt"
+}

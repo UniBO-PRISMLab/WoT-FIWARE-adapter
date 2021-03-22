@@ -1,0 +1,34 @@
+{
+  "name": "wot-fiware-adapter",
+  "version": "1.0.0",
+  "description": "adapter to connect Web of Things to FIWARE",
+  "main": "index.js",
+  "keywords": [
+    "wot",
+    "w3c"
+  ],
+  "author": "Ivan Zyrianoff",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/nconf": "^0.10.0",
+    "@types/node": "11.9.4",
+    "tslint": "5.12.1",
+    "wot-typescript-definitions": "0.7.3"
+  },
+  "dependencies": {
+    "@node-wot/binding-http": "0.7.0-SNAPSHOT.3",
+    "@node-wot/core": "0.7.0-SNAPSHOT.3",
+    "ajv": "^6.10.2",
+    "mqtt": "*",
+    "util": "*",
+    "axios": "*",
+    "fs": "*",
+    "request": "2.88.0"
+  },
+  "optionalDependencies": {},
+  "scripts": {
+    "buildAll": "npm install",
+    "start": "node index.js",
+    "clean": "rm -rf node_modules; rm -rf dist; rm -rf package-lock.json"
+  }
+}
