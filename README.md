@@ -1,0 +1,1 @@
+# WoT-FIWARE-adapter
