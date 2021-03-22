@@ -1,0 +1,108 @@
+PATCH http://localhost:1026/v2/entities/urn:ngsi-ld:SoilProbe:011/attrs
+Content-Type: application/json
+fiware-service: openiot
+fiware-servicepath: /
+
+{
+  "battery" :{
+    "value":10
+  },
+  "identifier" :{
+    "value": 4004
+  }
+}
+###
+
+POST http://177.104.61.25:1026/v2/entities/
+Content-Type: application/json
+fiware-service: openiot
+fiware-servicepath: /
+
+{
+  "type": "SoilProbe",
+  "id":"urn:ngsi-ld:SoilProbe:010110",
+  "timestamp" :{
+    "value":0
+  },
+  "identifier" :{
+    "value": 4004
+  }
+}
+
+###
+
+PATCH  http://localhost:1026/v2/entities/urn:ngsi-ld:SoilProbe:006/attrs
+Content-Type: application/json
+fiware-service: openiot
+fiware-servicepath: /
+
+{
+  "timestamp" :{
+    "value":1
+  },
+  "identifier" :{
+    "value": 4004
+  }
+}
+
+###
+GET http://177.104.61.118:1026/v2/entities
+fiware-service: openiot
+fiware-servicepath: /
+
+
+###
+DELETE http://localhost:1026/v2/entities/urn:ngsi-ld:SoilProbe:006/attrs/type
+fiware-service: openiot
+fiware-servicepath: /
+
+###
+POST http://177.104.61.118:1026/v2/subscriptions
+Content-Type: application/json
+fiware-service: openiot
+fiware-servicepath: /
+
+{
+  "description": "consumer subscription for SWAMP API",
+  "subject": {
+    "entities": [
+      {
+        "idPattern": ".*",
+        "type": "SoilProbe"
+      }
+    ]
+  },
+  "notification": {
+    "http": {
+      "url": "http://192.168.0.11:3002/message"
+    },
+    "attrs": [],
+    "metadata": ["dateCreated", "dateModified"]
+  },
+  "throttling": 0
+}
+
+####
+GET http://177.104.61.118:1026/v2/subscriptions
+fiware-service: openiot
+fiware-servicepath: /
+
+###
+DELETE http://177.104.61.118:1026/v2/subscriptions/60267e555e645cd273eb3a81
+fiware-service: openiot
+fiware-servicepath: /
+###
+GET http://177.104.61.118:1026/v2/entities
+fiware-service: openiot
+fiware-servicepath: /
+
+###
+GET http://177.104.61.118:4041/iot/services
+fiware-service: openiot
+fiware-servicepath: /
+
+###
+GET http://177.104.61.118:4041/iot/devices
+fiware-service: openiot
+fiware-servicepath: /
+
